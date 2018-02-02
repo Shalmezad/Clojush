@@ -117,6 +117,9 @@
      [:rswn-autoconstructive
       {:problem-file 'clojush.problems.software.replace-space-with-newline
        :argmap {:autoconstructive true}}]
+     [:tagge-code-macros
+      {:problem-file 'clojush.problems.synthetic.codesize20
+       :argmap {:max-generations 5}}]
      [:rswn-print-everything
       {:problem-file 'clojush.problems.software.replace-space-with-newline
        :argmap {:print-errors false
