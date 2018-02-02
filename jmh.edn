@@ -28,8 +28,21 @@
                :iterations 50}
               :threads 20
               :fork 3
+              :output-time-unit :ms}]}
+  {:name :execute-instruction
+   :fn clojush.interpreter/execute-instruction
+   :args [:state/execute-instruction-input]
+   :apply true
+   :options [{:mode :single-shot
+              :warmup
+              {:count 10000
+               :iterations 50}
+              :measurement
+              {:count 10000
+               :iterations 50}
+              :threads 20
+              :fork 3
               :output-time-unit :ms}]}]
-
  :states
  {:process-generation-input
   {:scope :benchmark
@@ -38,7 +51,11 @@
   :eval-push-input
   {:scope :benchmark
    :trial {:fn clojush.bench.helpers/->eval-push-input
-           :args [:param/eval-push-input-id]}}}
+           :args [:param/eval-push-input-id]}}
+  :execute-instruction-input
+  {:scope :benchmark
+   :trial {:fn clojush.bench.helpers/->execute-instruction-input
+           :args [:param/execute-instruction-input-id]}}}
  :params
  {:eval-push-input-id
   ["1369-09420c81-0e78-4322-8823-2c5d14c4ac3b"
@@ -51,4 +68,13 @@
    "1085-c785a344-19ed-45cc-9972-8042e2618079"
    "3483-9316a199-11e3-44e8-aaea-a8ab1ca87cb1"
    "3777-b28b22df-9be3-4573-b32a-3958c0c5ebd0"
-   "2423-5b6c7298-dc2b-43c1-8266-929730311695"]}}
+   "2423-5b6c7298-dc2b-43c1-8266-929730311695"]
+  :execute-instruction-input-id
+  ["0-505c3bba-18b3-4120-b2e5-5ae50e13caab"
+   "1-45c3edee-d7d0-4d04-8f30-e3c97752a437"
+   "0-7206692f-de2a-4bbb-8083-f7bbe2f2b4f5"
+   "1-4e6c3e78-7904-4540-86d0-9a71b6a25ecc"
+   "0-79d18037-e408-4dcb-98cf-2706e81460b4"
+   "2-611a9a2a-550d-4321-90f2-001cee5a9cf6"
+   "0-ae89f3df-196b-4ea0-ac2b-069b1d63414e"
+   "2-84adbcac-a056-48a5-b46a-d42dfe7cf547"]}}

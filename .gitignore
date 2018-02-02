@@ -26,3 +26,5 @@ clojush.iml
 /clojush/
 .ipynb_checkpoints/
 bench-inputs
+old.edn
+new.edn
