@@ -15,7 +15,8 @@
                  ;; https://mvnrepository.com/artifact/org.apache.commons/commons-math3
                  [org.apache.commons/commons-math3 "3.2"]
                  [cheshire "5.7.1"]
-                 [prismatic/plumbing "0.5.4"]]
+                 [prismatic/plumbing "0.5.4"]
+                 [info.debatty/java-string-similarity "1.0.0"]]
 
   ; different compiled classes per profile
   :target-path "target/%s"
