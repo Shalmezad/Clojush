@@ -8,6 +8,7 @@
             [clojush.core]
             [clojure.walk]
             [clojush.pushstate]
+            [clojush.util]
             [clojush.pushgp.report])
   (:import (org.nustaq.serialization FSTObjectInput FSTObjectOutput FSTConfiguration)
            (java.util UUID)
@@ -44,7 +45,10 @@
     ;; so that each execution get's its own new version.
     ;; Right now this key isn't used, we just use the function directly
     ; to create a function to benchmark, but eventually we will create that automatically with a macro.
-    :deserialize-inputs process-generation-deserialize-inputs}])
+    :deserialize-inputs process-generation-deserialize-inputs}
+
+   {:fn-var #'clojush.util/levenshtein-distance
+    :save-prob (/ 1 10000000)}])
 
 ; The args are taken from a configuration that performed well for Lee Spector
 ; https://push-language.hampshire.edu/t/improving-profiling-clojush-performance/904/19
@@ -167,6 +171,7 @@
 
 (def ->eval-push-input (partial ->input #'clojush.interpreter/eval-push))
 (def ->process-generation-input (partial ->input #'clojush.pushgp.pushgp/process-generation))
+(def ->levenshtein-distance-input (partial ->input #'clojush.util/levenshtein-distance))
 
 
 (defn process-generation-deserialize [& xs]

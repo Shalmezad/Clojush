@@ -50,9 +50,9 @@
                                n))))
         ci (/ (math/sqrt ci-num-in)
               denom)]
-    (str (format "%.2f" r)
+    (str (format "%.4f" r)
          " ±(99%) "
-         (format "%.2f" ci))))
+         (format "%.4f" ci))))
 
 (s/fdef ratio
         :args (s/cat :old ::stats :new ::stats)

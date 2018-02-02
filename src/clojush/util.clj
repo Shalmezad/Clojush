@@ -380,7 +380,7 @@
   "Calculates the Hamming distance between two sequences, including strings"
   [seq1 seq2]
   (apply + (map #(if (= %1 %2) 0 1)
-                  seq1 seq2)))
+                 seq1 seq2)))
 
 ;;;;;;;;;;;;;;:::::;;;;;;;;;;;;;;
 ;; Simple Statistic Functions

@@ -28,6 +28,20 @@
                :iterations 50}
               :threads 20
               :fork 3
+              :output-time-unit :ms}]}
+  {:name :levenshtein-distance
+   :fn clojush.util/levenshtein-distance
+   :args [:state/ld-input]
+   :apply true
+   :options [{:mode :single-shot
+              :warmup
+              {:count 1000
+               :iterations 1000}
+              :measurement
+              {:count 1000
+               :iterations 1000}
+              :fork 3
+              :thread 1
               :output-time-unit :ms}]}]
 
  :states
@@ -38,7 +52,11 @@
   :eval-push-input
   {:scope :benchmark
    :trial {:fn clojush.bench.helpers/->eval-push-input
-           :args [:param/eval-push-input-id]}}}
+           :args [:param/eval-push-input-id]}}
+  :ld-input
+  {:scope :benchmark
+   :trial {:fn clojush.bench.helpers/->levenshtein-distance-input
+           :args [:param/ld-input-id]}}}
  :params
  {:eval-push-input-id
   ["1369-09420c81-0e78-4322-8823-2c5d14c4ac3b"
@@ -51,4 +69,10 @@
    "1085-c785a344-19ed-45cc-9972-8042e2618079"
    "3483-9316a199-11e3-44e8-aaea-a8ab1ca87cb1"
    "3777-b28b22df-9be3-4573-b32a-3958c0c5ebd0"
-   "2423-5b6c7298-dc2b-43c1-8266-929730311695"]}}
+   "2423-5b6c7298-dc2b-43c1-8266-929730311695"]
+  :ld-input-id
+  [;"0-73d5b98f-32e0-40a3-bd33-1b36411e33b3"
+   "2-9234e43d-a501-4fad-bc09-59157107e331"]}}
+   ;"2-e84babd4-df2b-41d2-862a-5900bbc635b0"
+   ;"4-b5e24757-592a-47b1-bf8c-57d44c54db5f"
+   ;"3-ae832953-761c-4fa3-a2aa-7f81b40d8922"]}}
