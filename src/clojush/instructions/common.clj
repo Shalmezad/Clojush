@@ -186,7 +186,8 @@
       state)))
 
 (define-registered exec_eq (with-meta (eqer :exec) {:stack-types [:exec :boolean] :parentheses 0}))
-(define-registered integer_eq (with-meta (eqer :integer) {:stack-types [:integer :boolean]}))
+(define-registered integer_eq (with-meta (eqer :integer) {:stack-types [:integer :boolean]}) 
+  "Pushes TRUE onto the BOOLEAN stack if the top two items are equal, or FALSE otherwise.")
 (define-registered float_eq (with-meta (eqer :float) {:stack-types [:float :boolean]}))
 (define-registered code_eq (with-meta (eqer :code) {:stack-types [:code :boolean]}))
 (define-registered boolean_eq (with-meta (eqer :boolean) {:stack-types [:boolean]}))

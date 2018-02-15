@@ -94,7 +94,9 @@
               (when print-steps
                 (printf "\nState after %s steps (last step: %s):\n"
                         iteration (if (seq? exec-top) "(...)" exec-top))
-                (state-pretty-print s))
+                (state-pretty-print s)
+                (if (contains? @docstring-table exec-top)
+                  (printf "Documentation for %s:\n %s" exec-top (exec-top @docstring-table))))
               (when save-state-sequence
                 (swap! saved-state-sequence #(conj % s)))
               (recur (inc iteration) s time-limit))))))))

@@ -43,11 +43,13 @@
     (swap! registered-instructions conj name)))
 
 (def instruction-table (atom (hash-map)))
+(def docstring-table (atom (hash-map)))
 
 (defmacro define-registered
-  [instruction definition]
+  [instruction definition & [docstring]]
   `(do (register-instruction '~instruction)
-       (swap! instruction-table assoc '~instruction ~definition)))
+       (swap! instruction-table assoc '~instruction ~definition)
+       (swap! docstring-table assoc '~instruction (if (nil? ~docstring) "" ~docstring))))
 
 (defn state-pretty-print
   [state]

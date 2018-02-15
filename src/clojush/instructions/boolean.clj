@@ -14,7 +14,8 @@
                       (stack-ref :boolean 1 state))
                  :boolean
                  (pop-item :boolean (pop-item :boolean state)))
-      state)))
+      state))
+  "Pushes the logical AND of the top two BOOLEANs.")
 
 (define-registered
   boolean_or
