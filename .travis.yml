@@ -1,5 +1,6 @@
 sudo: true
 language: clojure
+dist: xenial
 
 # https://github.com/technomancy/leiningen/issues/2014#issuecomment-153829977
 before_install: yes y | sudo lein upgrade
